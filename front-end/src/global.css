@@ -1,0 +1,41 @@
+@reference "tailwindcss";
+
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@layer base {
+    :root {
+        --background: #fafafa;
+        --btn-background: #0d93f2;
+        --btn-text: #fafafa;
+        --card-background: #ffffff;
+    }
+    body {
+        @apply bg-[var(--background)];
+        font-family: 'Poppins';
+    }
+}
+
+@layer components {
+
+
+    .global-btn {
+        @apply cursor-pointer bg-[var(--btn-background)] text-[var(--btn-text)] font-semibold rounded-full shadow-lg text-center outline-0 border-0 hover:bg-[#0486e4] transition-all duration-400;
+    }
+    .global-x-btn {
+        @apply  items-center justify-center text-red-500 rounded-full hover:text-red-700 border-none pl-0.5 pr-0.5;
+    }
+
+    .global-card {
+        @apply bg-[var(--card-background)]  border-[var(--border-color)] w-full max-w-2xl mx-auto rounded-2xl border p-5 shadow-xl;
+    }
+
+    .global-icon {
+        @apply cursor-pointer text-[#0c92f2] hover:text-[#007ed8] bg-[var(--card-background)] outline-none border-none;
+    }
+}
