@@ -1,7 +1,5 @@
 # ConectaDev Project
 
-![ConectaDev Banner](https://raw.githubusercontent.com/MaironLima/ConectaDev-project/main/front-end/public/banner.png)
-
 ## 🚀 Sobre o Projeto
 O **ConectaDev Project** é uma plataforma completa para conectar desenvolvedores, compartilhar conhecimento, publicar posts e visualizar documentos em PDF. O projeto utiliza uma arquitetura moderna com backend em NestJS, banco de dados gerenciado via Prisma e frontend em React + Vite + TailwindCSS.
 
