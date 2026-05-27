@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "hosted-images",
   "version": "1.0",
   "description": "",
