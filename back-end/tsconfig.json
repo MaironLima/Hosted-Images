@@ -3,26 +3,29 @@
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-
     "isolatedModules": true,
     "declaration": true,
     "removeComments": true,
     "sourceMap": true,
+    "rootDir": ".",
     "outDir": "./dist",
     "incremental": true,
-
     "strict": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-
     "skipLibCheck": true,
-
-    "types": ["node", "multer"]
-  }
+    "types": [
+      "node",
+      "multer"
+    ]
+  },
+  "include": [
+    "src/**/*",
+    "libs/**/*",
+    "generated/**/*"
+  ]
 }

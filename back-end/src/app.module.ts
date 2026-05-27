@@ -3,6 +3,7 @@ import { MulterModule } from '@nestjs/platform-express';
 import { memoryStorage } from 'multer';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
+import { PrismaService } from './prisma.service.js';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -13,6 +14,6 @@ dotenv.config();
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}

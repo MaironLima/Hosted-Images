@@ -1,17 +1,31 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/require-await */
-import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common';
-import { PrismaClient } from '../generated/prisma/client.js';
+import {
+  INestApplication,
+  Injectable,
+  OnModuleInit,
+  OnModuleDestroy,
+} from '@nestjs/common';
+import { prisma } from '../libs/prisma.js';
 
 @Injectable()
-export class PrismaService extends PrismaClient implements OnModuleInit {
+export class PrismaService implements OnModuleInit, OnModuleDestroy {
+  // Expõe o cliente para quem precisar injetar o PrismaService
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  readonly db = prisma;
+
   async onModuleInit() {
-    await this.$connect();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    await prisma.$connect();
+  }
+
+  async onModuleDestroy() {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    await prisma.$disconnect();
   }
 
   async enableShutdownHooks(app: INestApplication) {
-    this.$on('beforeExit' as never, async () => {
-      await app.close();
-    });
+    process.on('beforeExit', () => void app.close());
   }
 }
