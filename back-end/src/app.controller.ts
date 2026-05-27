@@ -3,6 +3,7 @@ import {
   Get,
   HttpCode,
   Post,
+  Delete,
   UploadedFile,
   UseInterceptors,
   Param,
@@ -37,5 +38,11 @@ export class AppController {
   @UseInterceptors(FileInterceptor('file'))
   async uploadImage(@UploadedFile() file: Express.Multer.File) {
     return await this.appService.uploadAndSaveImage(file);
+  }
+
+  @Delete('image/:id')
+  @HttpCode(204)
+  async deleteImage(@Param('id') id: string) {
+    await this.appService.deleteImage(id);
   }
 }

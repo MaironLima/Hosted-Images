@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useStore } from "../store/store";
-import { Download } from "lucide-react";
+import { Download, Trash2 } from "lucide-react";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 import PdfPreview from "./PdfPreview";
@@ -21,7 +21,7 @@ type PageType = {
 
 function Posts() {
   const [postError, setPostError] = useState<string | null>(null);
-  const { something } = useStore();
+  const { something, somethingChanger } = useStore();
 
   const {
     mutate: getImages,
@@ -33,6 +33,22 @@ function Posts() {
       return response.data;
     },
   });
+
+  const { mutate: deletePost } = useMutation({
+    mutationFn: async (postId: string | number) => {
+      await api.delete(`/image/${postId}`);
+    },
+    onSuccess: () => {
+      somethingChanger();
+    },
+    onError: (error) => {
+      setPostError("Erro ao deletar arquivo:" + error);
+    },
+  });
+
+  function onDelete(postId: string | number) {
+    deletePost(postId);
+  }
 
   useEffect(() => {
     getImages();
@@ -125,20 +141,29 @@ function Posts() {
             </div>
 
             {fileUrl && (
-              <button
-                onClick={() =>
-                  downloadFile({
-                    id: post.id,
-                    filename: post.name || "arquivo",
-                  })
-                }
-                disabled={isDownloading}
-                className="global-icon disabled:opacity-50 absolute bottom-4 right-4"
-              >
-                <Download size={30} />
-              </button>
+              <div className="absolute bottom-4 right-4 flex gap-2">
+                <button
+                  className="global-icon text-[#eb5757] hover:text-[#d94040]"
+                  onClick={() => onDelete(post.id)}
+                >
+                  <Trash2 className="w-7 h-7" />
+                </button>
+                <button
+                  onClick={() =>
+                    downloadFile({
+                      id: post.id,
+                      filename: post.name || "arquivo",
+                    })
+                  }
+                  disabled={isDownloading}
+                  className="global-icon disabled:opacity-50"
+                  style={{ padding: 0 }}
+                >
+                  <Download className="w-7 h-7" />
+                </button>
+              </div>
             )}
-            {postError && <p className="text-red-500 text-sm">{postError}</p>}
+            {postError && <p className="text-red-500 text-sm mt-2 ml-4">{postError}</p>}
           </div>
         );
       })}

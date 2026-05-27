@@ -108,4 +108,21 @@ export class AppService {
     });
   }
   ////////////////////////////////////////////////////////////////////
+  async deleteImage(id: string) {
+    const file = await prisma.image.findUnique({ where: { id } });
+    if (!file) throw new BadRequestException('Imagem não encontrada');
+
+    try {
+      const match = file.url.match(/\/upload\/(?:v\d+\/)?(.+)\.[^.]+$/);
+      if (match && match[1]) {
+        const publicId = match[1];
+        await cloudinary.uploader.destroy(publicId);
+      }
+    } catch (error) {
+      console.error('Erro ao deletar do Cloudinary', error);
+    }
+
+    await prisma.image.delete({ where: { id } });
+  }
+  ////////////////////////////////////////////////////////////////////
 }
