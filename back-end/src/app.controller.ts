@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service.js';
-import { ImageModel } from '../generated/prisma/models.js';
+import type { Image } from '../generated/prisma/client.js';
 import type { Response } from 'express';
 
 @Controller()
@@ -24,7 +24,7 @@ export class AppController {
   }
 
   @Get('image')
-  async getAllImage(): Promise<ImageModel[]> {
+  async getAllImage(): Promise<Image[]> {
     return await this.appService.getAllImage();
   }
 
