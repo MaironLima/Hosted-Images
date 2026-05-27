@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service.js';
-import type { Image } from '../generated/prisma/client.js';
+import type { Image } from './generated/prisma/client.js';
 import type { Response } from 'express';
 
 @Controller()
