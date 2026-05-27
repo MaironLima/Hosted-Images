@@ -12,7 +12,7 @@ import {
   type UploadApiResponse,
 } from 'cloudinary';
 import { prisma } from '../libs/prisma.js';
-import { ImageModel } from '../generated/prisma/models.js';
+import type { Image } from '../generated/prisma/client.js';
 import axios from 'axios';
 import type { Response } from 'express';
 
@@ -24,7 +24,7 @@ export class AppService {
   }
   ////////////////////////////////////////////////////////////////////
 
-  async getAllImage(): Promise<ImageModel[]> {
+  async getAllImage(): Promise<Image[]> {
     return prisma.image.findMany();
   }
   ////////////////////////////////////////////////////////////////////
@@ -55,7 +55,7 @@ export class AppService {
     response.data.pipe(res);
   }
   ////////////////////////////////////////////////////////////////////
-  async uploadAndSaveImage(file: Express.Multer.File): Promise<ImageModel> {
+  async uploadAndSaveImage(file: Express.Multer.File): Promise<Image> {
     if (!file) {
       throw new BadRequestException('Arquivo não enviado');
     }
