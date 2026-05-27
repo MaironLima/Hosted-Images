@@ -7,7 +7,7 @@
   "type": "module",
   "license": "UNLICENSED",
     "scripts": {
-    "build": "prisma generate && nest build",
+    "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "dev": "nest start --watch",
@@ -19,8 +19,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "seed": "npx prisma migrate deploy && npx tsx ./seed.ts",
-    "generate": "prisma generate"
+    "seed": "npx prisma migrate deploy && npx tsx ./seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
