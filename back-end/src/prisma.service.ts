@@ -9,7 +9,7 @@ import {
   OnModuleInit,
   OnModuleDestroy,
 } from '@nestjs/common';
-import { prisma } from '../libs/prisma.js';
+import { prisma } from './prisma.js';
 
 @Injectable()
 export class PrismaService implements OnModuleInit, OnModuleDestroy {

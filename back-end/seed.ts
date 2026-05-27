@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { prisma } from './libs/prisma.js';
+import { prisma } from './src/prisma.js';
 import { cloudinary } from './src/config/cloudinary.config.js';
 
 async function main() {

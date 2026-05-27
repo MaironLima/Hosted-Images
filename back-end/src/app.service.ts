@@ -11,7 +11,7 @@ import {
   type UploadApiErrorResponse,
   type UploadApiResponse,
 } from 'cloudinary';
-import { prisma } from '../libs/prisma.js';
+import { prisma } from './prisma.js';
 import type { Image } from './generated/prisma/client.js';
 import axios from 'axios';
 import type { Response } from 'express';
