@@ -1,39 +1,39 @@
 # Hosted Images
 
-Plataforma fullstack para publicação de imagens, integração com banco de dados e visualização dinâmica de conteúdo.  
-- **Backend e banco de dados:** Railway  
+Fullstack platform for image publishing, database integration, and dynamic content visualization.  
+- **Backend and database:** Railway  
 - **Frontend:** [Vercel - hosted-images.vercel.app](https://hosted-images.vercel.app)
 
 ---
 
-## 🌐 Demonstração
+## 🌐 Demo
 
-- [Acesse o frontend em produção](https://hosted-images.vercel.app)
+- [Access the production frontend](https://hosted-images.vercel.app)
 
 ---
 
-## 📦 Tecnologias Utilizadas
+## 📦 Technologies Used
 
 - **Backend:** Node.js, NestJS, Prisma ORM, PostgreSQL  
 - **Frontend:** React, Vite, TailwindCSS  
-- **Hospedagem:** [Railway](https://railway.app/) (API & DB), [Vercel](https://vercel.com/) (Frontend)  
-- **Outros:** TypeScript, Cloudinary (uploads de imagem)
+- **Hosting:** [Railway](https://railway.app/) (API & DB), [Vercel](https://vercel.com/) (Frontend)  
+- **Others:** TypeScript, Cloudinary (image uploads)
 
 ---
 
-## 🚀 Como rodar o projeto localmente
+## 🚀 How to run the project locally
 
-1. **Clone o repositório**
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/MaironLima/Hosted-Images.git
    ```
 
-2. **Configure as variáveis de ambiente**
+2. **Set up environment variables**
 
-   - No backend, copie `.env.example` para `.env` e defina suas credenciais Railway e Cloudinary.
+   - In the backend, copy `.env.example` to `.env` and set your Railway and Cloudinary credentials.
 
-3. **Instale as dependências**
+3. **Install dependencies**
 
    ```bash
    # Backend
@@ -45,20 +45,20 @@ Plataforma fullstack para publicação de imagens, integração com banco de dad
    npm install
    ```
 
-4. **Rode as migrações no banco de dados**
+4. **Run database migrations**
 
    ```bash
    cd ../back-end
    npx prisma migrate dev
    ```
 
-5. **Inicie o backend**
+5. **Start the backend**
 
    ```bash
    npm run start:dev
    ```
 
-6. **Inicie o frontend**
+6. **Start the frontend**
 
    ```bash
    cd ../front-end
@@ -70,51 +70,51 @@ Plataforma fullstack para publicação de imagens, integração com banco de dad
 ## 🏗️ Deploy
 
 - **Backend + Database:**  
-  - Configure um projeto Railway, conecte o repositório e defina as variáveis de ambiente.
-  - Railway cria e conecta automaticamente o banco PostgreSQL ao backend.
+  - Set up a Railway project, connect the repository, and configure environment variables.
+  - Railway automatically creates and connects a PostgreSQL database to the backend.
 
 - **Frontend:**  
-  - Faça deploy da pasta `front-end` diretamente na Vercel.
-  - Configure as variáveis de ambiente necessárias, como a URL da API.
+  - Deploy the `front-end` folder directly to Vercel.
+  - Set up the necessary environment variables like the API URL.
 
-- **Ver produção:**  
+- **Production:**  
   https://hosted-images.vercel.app
 
 ---
 
-## ⚙️ Funcionalidades Principais
+## ⚙️ Main Features
 
-- Cadastro e autenticação de usuários
-- Upload e visualização de imagens
-- Publicação de postagens
-- Integração backend-frontend
-- Banco de dados PostgreSQL (Railway)
-- Deploy contínuo (Railway e Vercel)
+- User registration and authentication
+- Image upload and visualization
+- Post publishing
+- Backend-frontend integration
+- PostgreSQL database (Railway)
+- Continuous deployment (Railway and Vercel)
 
 ---
 
 ## 📸 Screenshots
 
-> Adicione aqui prints das principais telas do sistema.
+> Add screenshots of the main system screens here.
 
 ---
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-1. Faça um fork
-2. Crie uma branch (`git checkout -b feature/nome`)
-3. Commite suas alterações (`git commit -m 'feat: descrição da feature'`)
-4. Envie para o repositório (`git push origin feature/nome`)
-5. Abra um Pull Request
-
----
-
-## 📝 Licença
-
-Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+1. Fork the repository
+2. Create a branch (`git checkout -b feature/name`)
+3. Commit your changes (`git commit -m 'feat: features description'`)
+4. Push to your branch (`git push origin feature/name`)
+5. Open a Pull Request
 
 ---
 
-## 👤 Autor
+## 📝 License
+
+This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+## 👤 Author
 
 - [Mairon Lima](https://github.com/MaironLima)
